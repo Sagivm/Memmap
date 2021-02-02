@@ -15,10 +15,10 @@ class Block extends React.Component {
   }
   render(){
     return(
-      <button class="square mem-block-25" 
+      <button className="square mem-block-75" 
               onClick={()=>alert("click"
               )}>
-        {this.props.value}
+        
       </button>
     );
   }
