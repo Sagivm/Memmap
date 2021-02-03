@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './css/bootstrap-simplex.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const MEM_LENGTH=20
+const MEM_LENGTH = 20;
+//const Classic_Theme = React.createContext(true);
+
 class Block extends React.Component {
   constructor(props){
     super(props);
@@ -38,8 +41,7 @@ class Block extends React.Component {
     return(
       <button className={'square ' + color}
         
-              onClick={()=>alert("click"
-              )}>
+              onClick={()=>alert("click")}>
         
       </button>
     );
@@ -73,9 +75,67 @@ class MemmoryMap extends React.Component {
   }
 }
 
+function ThemeToggle(props) {
+  var themeLabel
+  if(props.dark_theme)
+    themeLabel= "Dark";
+  else
+    themeLabel= "Classic";
+  return (
+    <div id="theme-toggle" class="custom-control custom-switch">
+    
+      <input type="checkbox" class="custom-control-input" id="ThemeToggle" 
+             checked={props.dark_theme} 
+             onClick={props.onClick}/>
+      <label class="custom-control-label" for="ThemeToggle" >
+        {themeLabel}
+      </label>
+
+    </div>
+  );
+}
+
+class Window extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      dark_theme: false,
+      stylePath: "../src/css/bootstrap-simplex.min.css"
+    }
+  }
+  
+  handleThemeToggleClick(dark){
+    var new_theme = !this.state.dark_theme
+    if(new_theme)
+    {
+      import("./css/bootstrap-darkly.min.css");
+      this.setState({
+        dark_theme: new_theme,
+      });
+    }
+    else{
+      import("./css/bootstrap-simplex.min.css");
+      this.setState({
+        dark_theme: new_theme,
+      });
+    } 
+  }
+
+  render() {
+    return (
+      <div>
+        <MemmoryMap />
+        <ThemeToggle dark_theme={this.state.dark_theme} onClick={() => this.handleThemeToggleClick(this.state.dark_theme)}  />
+      </div>
+    );
+  }
+}
+
+
 // ========================================
 
 ReactDOM.render(
-  <MemmoryMap />,
+  <Window />,
   document.getElementById('root')
 );

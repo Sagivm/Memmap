@@ -23,13 +23,13 @@ ol, ul {
   float: left;
   font-size: 24px;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
+  line-height: 32px;
+  height: 32px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 32px;
 }
 
 .square:focus {
@@ -79,4 +79,10 @@ ol, ul {
 .mem-block-100 
 {
   background: #e04a4a;
+}
+
+#theme-toggle {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
