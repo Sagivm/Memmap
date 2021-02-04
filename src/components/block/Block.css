@@ -63,3 +63,8 @@
     bottom: 0;
     right: 0;
   }
+
+  .selected{
+    border-color: yellow;
+    border-radius: 10px;
+  }
