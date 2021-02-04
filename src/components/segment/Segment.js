@@ -34,7 +34,7 @@ class BoardColumn extends React.Component{
         items.push(<BoardColumn />)
       }
       return (
-        <div>
+        <div class="segment">
           {items}
         </div>
       );
