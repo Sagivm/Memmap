@@ -35,3 +35,9 @@
   .main {
     margin-left: 20%; /* Same as the width of the sidebar */
   }
+
+.selected{
+  font-weight:bold;
+  color:white;
+  background: #e04a4a;
+}
