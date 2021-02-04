@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './MemoryMap.css';
 
 
-import Segment from '../segment/Segment'
+import Segment from '../segment/Segment';
+import Search from '../search/Search';
 
 class MemoryMap extends React.Component {
   constructor(props){
@@ -52,6 +53,7 @@ class MemoryMap extends React.Component {
           {items}
         </ul>
         <div class="tab-content">
+          <Search />
           <Segment segment={this.state.selectedSegment}/>
         </div>
       </div>
