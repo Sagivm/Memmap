@@ -17,17 +17,13 @@ class Search extends React.Component {
       { value: '4', label: 'd_pro_4', color: '#00B8D9'},
     ];
 
-
-
-
-
       return(
         <Select
             isMulti
             name="colors"
             options={colourOptions}
             className="basic-multi-select"
-            classNamePrefix="select"
+            classNamePrefix="Search unit"
         />
     );
   }
