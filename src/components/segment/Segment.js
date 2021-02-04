@@ -30,6 +30,8 @@ class BoardColumn extends React.Component{
     }
     render() {
       const items = []
+      if (this.props.segment == null)
+        return(null);
       for (var i=0; i<MEM_LENGTH; i++){
         items.push(<BoardColumn />)
       }
