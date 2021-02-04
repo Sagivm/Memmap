@@ -22,6 +22,12 @@ class BoardColumn extends React.Component{
     }
   }
   class Segment extends React.Component {
+    constructor(props){
+      super(props)
+      this.state={
+        segment: this.props.segment
+      }
+    }
     render() {
       const items = []
       for (var i=0; i<MEM_LENGTH; i++){

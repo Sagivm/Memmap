@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useImperativeHandle } from 'react';
 import ReactDOM from 'react-dom';
 import './MemoryMap.css';
 
@@ -9,12 +9,19 @@ class MemoryMap extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      aircraft:"Raam"
+      aircraft:"Raam",
+      selectedSegment: null
     }
+  }
+  handleSegmentClick(segment){
+    this.setState({
+      selectedSegment: segment
+    });
   }
   render(){
     var items=Array()
     var segments;
+    var listItem;
     var i;
     if (this.state.aircraft=="Raam"){
       segments=["A1","A2","A","B"];
@@ -22,20 +29,30 @@ class MemoryMap extends React.Component {
     else{
       segments=["A1","A","B","H1","H2"]
     }
-    for(i=0;i<segments.length;i++){
-      items.push(
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#home">{segments[i]}</a>
-        </li>
-      );
+    for(const segment of segments){
+      if(segment == this.state.selectedSegment){
+        listItem =(
+          <li class="nav-item selected" onClick={()=>this.handleSegmentClick(segment)}>
+            <a class="nav-link selected" data-toggle="tab" href="#home">{segment}</a>
+          </li>
+        );
+      }
+      else{
+        listItem =(
+          <li class="nav-item" onClick={()=>this.handleSegmentClick(segment)}>
+            <a class="nav-link" data-toggle="tab" href="#home">{segment}</a>
+          </li>
+        );
+      }
+      items.push(listItem)
     }
     return(
       <div>
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs segment-bar-classic">
           {items}
         </ul>
-        <div class="tab-content h-100">
-          <Segment/>
+        <div class="tab-content">
+          <Segment segment={this.state.selectedSegment}/>
         </div>
       </div>
     );
