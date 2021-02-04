@@ -15,7 +15,7 @@ class BoardColumn extends React.Component{
         )
       }
       return(
-        <div className="board-row">
+        <div className="mem-row">
           {items}
         </div>
       );
