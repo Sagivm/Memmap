@@ -2,37 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './MemoryMap.css';
 
-import Block from '../block/Block'; 
 
-const MEM_LENGTH = 20;
+import Segment from '../segment/Segment'
 
-class BoardColumn extends React.Component{
-    render(){
-      const items = []
-      for (var i=0; i<MEM_LENGTH; i++){
-        items.push(
-           <Block size={260}/>
-        )
-      }
-      return(
-        <div className="board-row">
-          {items}
-        </div>
+class MemoryMap extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      aircraft:"Raam"
+    }
+  }
+  render(){
+    var items=Array()
+    var segments;
+    var i;
+    if (this.state.aircraft=="Raam"){
+      segments=["A1","A2","A","B"];
+    }
+    else{
+      segments=["A1","A","B","H1","H2"]
+    }
+    for(i=0;i<segments.length;i++){
+      items.push(
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#home">{segments[i]}</a>
+        </li>
       );
     }
-  }
-  class MemoryMap extends React.Component {
-    render() {
-      const items = []
-      for (var i=0; i<MEM_LENGTH; i++){
-        items.push(<BoardColumn />)
-      }
-      return (
-        <div>
+    return(
+      <div>
+        <ul class="nav nav-tabs">
           {items}
+        </ul>
+        <div class="tab-content h-100">
+          <Segment/>
         </div>
-      )
-    }
+      </div>
+    );
   }
+}
 
-  export default MemoryMap;
+export default MemoryMap;

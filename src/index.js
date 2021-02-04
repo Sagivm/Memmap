@@ -9,6 +9,8 @@ import { Suspense } from 'react';
 // Components
 import ThemeToggle from './components/toggle/Toggle';
 import MemoryMap from './components/memorymap/MemoryMap'
+import Segment from './components/segment/Segment'
+import Board from './components/board/Board';
 
 class Window extends React.Component {
 
@@ -39,8 +41,15 @@ class Window extends React.Component {
   render() {
     return (
       <div>
-        <MemoryMap />
-        <ThemeToggle dark_theme={this.state.dark_theme} onClick={() => this.handleThemeToggleClick(this.state.dark_theme)}  />
+        <div className="sidenav">
+          <Board />
+        </div>
+        <div className="main h-100">
+          <MemoryMap/>
+        </div>
+        <div>
+          <ThemeToggle dark_theme={this.state.dark_theme} onClick={() => this.handleThemeToggleClick(this.state.dark_theme)}  />
+        </div>
       </div>
     );
   }
