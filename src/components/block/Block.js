@@ -74,7 +74,9 @@ class Block extends React.Component {
         <div>
           <button type="button"
                   className={'square ' + filling_class + ' ' + (this.props.selected ? "selected": null) }
-                  onClick={()=>alert("click")}/>    
+                  onClick={()=>alert("click")}
+                  onMouseOver={()=>this.props.handleSelectedOver(this.state.index)}
+                  />    
         </div>
       );
     }

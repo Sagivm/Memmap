@@ -8,26 +8,31 @@ const MEM_LENGTH = 20;
 const MEM_BLOCK_SIZE=512;
 
 
-const TEST_INDEX = 42;
+var TEST_INDEX = 42;
 
 class BoardColumn extends React.Component{
-    render(){
-      //TODO move to pre render function
-      const items = []
-      var selected = false;
-      for (var i=0; i<MEM_LENGTH; i++){
-        if (this.props.row*MEM_LENGTH +i == TEST_INDEX)
-          selected = true;
-        items.push(
+    
+  constructor(props){
+    super(props);
+    this.state={
+    }
+  }
+  
+  render(){
+    //TODO move to pre render function
+    const items = []
+    var selected = false;
+    for (var i=0; i<MEM_LENGTH; i++){
+      items.push(
            <Block 
               size={500}
               index={this.props.row*MEM_LENGTH + i}
               start={(this.props.row*MEM_LENGTH + i)*MEM_BLOCK_SIZE} 
               end={(this.props.row*MEM_LENGTH + i + 1)*MEM_BLOCK_SIZE - 1}
-              selected = {selected}
+              selected = {(this.props.row*MEM_LENGTH +i == this.props.selectedIndex) ? true:false}
+              handleSelectedOver={this.props.handleSelectedOver}
               />
-        )
-        selected = false;
+      )
       }
       return(
         <div className="mem-row">
@@ -40,13 +45,24 @@ class BoardColumn extends React.Component{
     constructor(props){
       super(props)
       this.state={
-        segment: this.props.segment
+        segment: this.props.segment,
+        selectedIndex: null
       }
+      this.handleSelectedOver=this.handleSelectedOver.bind(this);
+    }
+    handleSelectedOver(index){
+      //alert("over")
+      this.setState({
+        selectedIndex: index
+      });
     }
     render() {
       const items = []
       for (var i=0; i<MEM_LENGTH; i++){
-        items.push(<BoardColumn row={i} />)
+        items.push(<BoardColumn 
+          selectedIndex={this.state.selectedIndex}
+          handleSelectedOver={this.handleSelectedOver} 
+          row={i} />)
       }
       return (
         <div class="segment">
