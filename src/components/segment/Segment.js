@@ -28,7 +28,7 @@ class BoardColumn extends React.Component{
         items.push(<BoardColumn />)
       }
       return (
-        <div id="sagiv">
+        <div>
           {items}
         </div>
       );
