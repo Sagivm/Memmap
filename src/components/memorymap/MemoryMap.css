@@ -1,0 +1,12 @@
+.tab-content{
+    padding-top: 1%;
+    padding-left: 1%;
+    display: flex;
+}
+#segment-bar-classic{
+    background: #fcfcfc;
+}
+
+#segment-bar-dark{
+    background: #222;
+}
