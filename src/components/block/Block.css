@@ -1,13 +1,7 @@
   ol, ul {
     padding-left: 30px;
   }
-  
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
+
   .square {
     background: #fff;
     border: 1px solid #999;
@@ -68,4 +62,10 @@
     position: fixed;
     bottom: 0;
     right: 0;
+  }
+
+  .selected{
+    border-color: black;
+    border-radius: 2px;
+    border-width: 2px;
   }
