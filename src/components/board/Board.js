@@ -11,6 +11,7 @@ class Board extends React.Component {
   render(){
       return(
         <div class="sidenav">
+          <a href="../../img/logo-stuck.png"></a>
         </div>
     );
   }
