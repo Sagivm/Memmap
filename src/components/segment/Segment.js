@@ -7,9 +7,7 @@ import Block from '../block/Block';
 const MEM_LENGTH = 20;
 const MEM_BLOCK_SIZE=512;
 
-
-var TEST_INDEX = 42;
-
+//TODO: limit rendering not to entire page
 class BoardColumn extends React.Component{
     
   constructor(props){
@@ -45,13 +43,11 @@ class BoardColumn extends React.Component{
     constructor(props){
       super(props)
       this.state={
-        segment: this.props.segment,
         selectedIndex: null
       }
       this.handleSelectedOver=this.handleSelectedOver.bind(this);
     }
     handleSelectedOver(index){
-      //alert("over")
       this.setState({
         selectedIndex: index
       });
@@ -69,6 +65,7 @@ class BoardColumn extends React.Component{
           {items}
         </div>
       );
+      
     }
   }
 

@@ -19,11 +19,12 @@ class MemoryMap extends React.Component {
       selectedSegment: segment
     });
   }
-  render(){
-    var items=Array()
+  preRender(){
+    const items=Array();
     var segments;
     var listItem;
     var i;
+
     if (this.state.aircraft=="Raam"){
       segments=["A1","A2","A","B"];
     }
@@ -45,19 +46,39 @@ class MemoryMap extends React.Component {
           </li>
         );
       }
-      items.push(listItem)
+      items.push(listItem);
     }
-    return(
-      <div>
-        <ul class="nav nav-tabs segment-bar-classic">
-          {items}
-        </ul>
-        <div class="tab-content">
-          <Search />
-          <Segment segment={this.state.selectedSegment}/>
+    return items;
+
+  }
+  render(){
+    var items=this.preRender()
+    if (this.state.selectedSegment == null){
+      return(
+        <div>
+          <ul class="nav nav-tabs segment-bar-classic">
+            {items}
+          </ul>
+          <div class="tab-content">
+          </div>
         </div>
-      </div>
-    );
+      );
+
+    }
+    else{
+      return(
+        <div>
+          <ul class="nav nav-tabs segment-bar-classic">
+            {items}
+          </ul>
+          <div class="tab-content">
+            <Search />
+            <Segment segment={this.state.selectedSegment}/>
+          </div>
+        </div>
+      );
+    }
+    
   }
 }
 
