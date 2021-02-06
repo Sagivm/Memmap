@@ -1,14 +1,16 @@
   /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 20%; /* Set the width of the sidebar */
+  width: 25%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: lightgrey; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  padding-top: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 /* The navigation menu links */
@@ -33,7 +35,7 @@
 }
   /* Style page content */
   .main {
-    margin-left: 20%; /* Same as the width of the sidebar */
+    margin-left: 25%; /* Same as the width of the sidebar */
   }
 
 .selected{
@@ -41,3 +43,4 @@
   color:white;
   background: #e04a4a;
 }
+
