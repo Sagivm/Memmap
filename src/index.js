@@ -9,8 +9,10 @@ import { Suspense } from 'react';
 // Components
 import ThemeToggle from './components/toggle/Toggle';
 import MemoryMap from './components/memorymap/MemoryMap'
-import Segment from './components/segment/Segment'
 import Board from './components/board/Board';
+
+//context
+import SelectedContext from './components/context/SelectedContext';
 
 class Window extends React.Component {
 
@@ -39,11 +41,14 @@ class Window extends React.Component {
   }
 
   render() {
+    var selected = true;
     return (
       <div>
-        <div className="sidenav">
-          <Board />
-        </div>
+        <SelectedContext.Provider value="what we listen to">
+          <div className="sidenav">
+            <Board />
+          </div>
+          </SelectedContext.Provider>
         <div className="main h-100">
           <MemoryMap/>
         </div>

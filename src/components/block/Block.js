@@ -4,6 +4,8 @@ import ReactTooltip from 'react-tooltip';
 import { format } from 'react-string-format';
 import './Block.css';
 
+import SelectedContext from '../context/SelectedContext';
+
 const MEM_BLOCK_SIZE=512
 
 
@@ -50,13 +52,14 @@ class Block extends React.Component {
       this.state.start.toString(16),
       this.state.end.toString(16),
       (MEM_BLOCK_SIZE - this.props.size).toString(16));
+    let cont= this.context;
     if (this.props.selected)
     {
       return(
         <div>
           <button type="button"
                   className={'square ' + filling_class + ' ' + (this.props.selected ? "selected": null) }
-                  onClick={()=>alert("click")}
+                  onClick={()=>alert(this.context)}
                   data-tip={content}/>
           <ReactTooltip 
               place="bottom"
@@ -74,7 +77,7 @@ class Block extends React.Component {
         <div>
           <button type="button"
                   className={'square ' + filling_class + ' ' + (this.props.selected ? "selected": null) }
-                  onClick={()=>alert("click")}
+                  onClick={()=>alert(this.context)}
                   onMouseOver={()=>this.props.handleSelectedOver(this.state.index)}
                   />    
         </div>
@@ -82,5 +85,7 @@ class Block extends React.Component {
     }
   }
 }
+
+Block.contextType = SelectedContext;
 
 export default Block;
