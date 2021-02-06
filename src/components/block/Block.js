@@ -4,7 +4,7 @@ import ReactTooltip from 'react-tooltip';
 import { format } from 'react-string-format';
 import './Block.css';
 
-import SelectedContext from '../context/SelectedContext';
+import {SelectedContext} from '../context/SelectedContext';
 
 const MEM_BLOCK_SIZE=512
 

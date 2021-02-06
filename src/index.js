@@ -12,7 +12,7 @@ import MemoryMap from './components/memorymap/MemoryMap'
 import Board from './components/board/Board';
 
 //context
-import SelectedContext from './components/context/SelectedContext';
+import {SelectedContext} from './components/context/SelectedContext';
 
 class Window extends React.Component {
 
@@ -20,6 +20,7 @@ class Window extends React.Component {
     super(props);
     this.state = {
       dark_theme: false,
+      selected:false
     }
   }
   
@@ -41,17 +42,16 @@ class Window extends React.Component {
   }
 
   render() {
-    var selected = true;
     return (
       <div>
-        <SelectedContext.Provider value="what we listen to">
+        <SelectedContext.Provider value={this.state.selected}>
           <div className="sidenav">
             <Board />
           </div>
-          </SelectedContext.Provider>
-        <div className="main h-100">
-          <MemoryMap/>
-        </div>
+          <div className="main h-100">
+            <MemoryMap/>
+          </div>
+        </SelectedContext.Provider>
         <div>
           <ThemeToggle dark_theme={this.state.dark_theme} onClick={() => this.handleThemeToggleClick(this.state.dark_theme)}  />
         </div>
