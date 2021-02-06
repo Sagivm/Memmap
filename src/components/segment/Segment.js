@@ -27,8 +27,8 @@ class BoardColumn extends React.Component{
               index={this.props.row*MEM_LENGTH + i}
               start={(this.props.row*MEM_LENGTH + i)*MEM_BLOCK_SIZE} 
               end={(this.props.row*MEM_LENGTH + i + 1)*MEM_BLOCK_SIZE - 1}
-              selected = {(this.props.row*MEM_LENGTH +i == this.props.selectedIndex) ? true:false}
-              handleSelectedOver={this.props.handleSelectedOver}
+              hovered = {(this.props.row*MEM_LENGTH +i == this.props.hoveredIndex) ? true:false}
+              handleHover={this.props.handleHover}
               />
       )
       }
@@ -43,13 +43,14 @@ class BoardColumn extends React.Component{
     constructor(props){
       super(props)
       this.state={
-        selectedIndex: null
+        hoveredIndex: null
       }
-      this.handleSelectedOver=this.handleSelectedOver.bind(this);
+      this.handleHover=this.handleHover.bind(this);
     }
-    handleSelectedOver(index){
+    //TODO: make hover a context as well
+    handleHover(index){
       this.setState({
-        selectedIndex: index
+        hoveredIndex: index
       });
     }
     render() {
@@ -58,8 +59,8 @@ class BoardColumn extends React.Component{
         return(null);
       for (var i=0; i<MEM_LENGTH; i++){
         items.push(<BoardColumn 
-          selectedIndex={this.state.selectedIndex}
-          handleSelectedOver={this.handleSelectedOver} 
+          hoveredIndex={this.state.hoveredIndex}
+          handleHover={this.handleHover} 
           row={i} />)
       }
       return (

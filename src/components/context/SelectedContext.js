@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const SelectedContext = React.createContext("sagiv");
+export const SelectedContext = React.createContext(false);

@@ -20,8 +20,9 @@ class Window extends React.Component {
     super(props);
     this.state = {
       dark_theme: false,
-      selected:false
+      selectedIndex:null
     }
+    this.handleSelectedContext = this.handleSelectedContext.bind(this)
   }
   
   handleThemeToggleClick(dark){
@@ -41,10 +42,26 @@ class Window extends React.Component {
     } 
   }
 
+  handleSelectedContext(selectedIndex){
+    this.setState({
+      selectedIndex:selectedIndex
+    })
+
+
+  }
+  createSelectedContext(){
+    return({
+      selectedIndex:this.state.selectedIndex,
+      handleSelectedContext: this.handleSelectedContext
+    });
+  }
+
   render() {
+    alert(this.state.selectedIndex)
+    var context = this.createSelectedContext()
     return (
       <div>
-        <SelectedContext.Provider value={this.state.selected}>
+        <SelectedContext.Provider value={context}>
           <div className="sidenav">
             <Board />
           </div>
