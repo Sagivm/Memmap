@@ -9,8 +9,10 @@ import { Suspense } from 'react';
 // Components
 import ThemeToggle from './components/toggle/Toggle';
 import MemoryMap from './components/memorymap/MemoryMap'
-import Segment from './components/segment/Segment'
 import Board from './components/board/Board';
+
+//context
+import {SelectedContext} from './components/context/SelectedContext';
 
 class Window extends React.Component {
 
@@ -18,7 +20,9 @@ class Window extends React.Component {
     super(props);
     this.state = {
       dark_theme: false,
+      selectedIndex:null
     }
+    this.handleSelectedContext = this.handleSelectedContext.bind(this)
   }
   
   handleThemeToggleClick(dark){
@@ -38,15 +42,33 @@ class Window extends React.Component {
     } 
   }
 
+  handleSelectedContext(selectedIndex){
+    this.setState({
+      selectedIndex:selectedIndex
+    })
+
+
+  }
+  createSelectedContext(){
+    return({
+      selectedIndex:this.state.selectedIndex,
+      handleSelectedContext: this.handleSelectedContext
+    });
+  }
+
   render() {
+    alert(this.state.selectedIndex)
+    var context = this.createSelectedContext()
     return (
       <div>
-        <div className="sidenav">
-          <Board />
-        </div>
-        <div className="main h-100">
-          <MemoryMap/>
-        </div>
+        <SelectedContext.Provider value={context}>
+          <div className="sidenav">
+            <Board />
+          </div>
+          <div className="main h-100">
+            <MemoryMap/>
+          </div>
+        </SelectedContext.Provider>
         <div>
           <ThemeToggle dark_theme={this.state.dark_theme} onClick={() => this.handleThemeToggleClick(this.state.dark_theme)}  />
         </div>
