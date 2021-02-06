@@ -7,28 +7,42 @@ class BlockDetail extends React.Component{
     constructor(props){
       super(props);
       this.state={
-          format:"Hex"
+          format:"Hex",
+
       }
     }
     
     changeformat(){
-        
+        var currentFormat = this.state.format;
+        if (currentFormat == "Hex")
+            currentFormat = "Dec";
+        else
+            currentFormat = "Hex";
+        this.setState({
+            format: currentFormat
+        })
     }
     render(){
         return(
             <div>
                 <div class="d-flex justify-content-center">
                     <div className="col-sm">
-                        <h4>Start:</h4>
-                        <h4>Size: </h4>
+                        <h4>Start:{this.props.start}</h4>
+                        <h4>Size:
+                            {(this.state.format == "Hex") ? this.props.size.toString(16):this.props.size} 
+                        </h4>
                     </div>
                     <div className="col-sm">
-                        <h4>End:</h4>
-                        <h4>Free:</h4>
+                        <h4>End:{this.props.end}</h4>
+                        <h4>Free:
+                            {(this.state.format == "Hex") ? this.props.free.toString(16):this.props.free}
+                        </h4>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary" onClick={()=> this.changeformat()}>Hex</button>
+                    <button type="button" class="btn btn-primary" onClick={()=> this.changeformat()}>
+                        {this.state.format}
+                    </button>
                 </div>
             </div>
         );

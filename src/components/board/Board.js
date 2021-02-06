@@ -28,7 +28,12 @@ class Board extends React.Component {
         <div class="d-flex justify-content-center">
           <h1 className="boardTitle">Memory Block</h1>
         </div>
-        <BoardDetail />
+        <BoardDetail
+          start={null}
+          end={null}
+          size={20}
+          free={50}
+         />
         <div class="d-flex justify-content-center">
         <table class="table">
           <thead>
