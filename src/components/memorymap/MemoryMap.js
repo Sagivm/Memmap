@@ -2,9 +2,8 @@ import React, { useImperativeHandle } from 'react';
 import ReactDOM from 'react-dom';
 import './MemoryMap.css';
 
-
-import Segment from '../segment/Segment';
 import Search from '../search/Search';
+import Board from '../board/Board';
 
 class MemoryMap extends React.Component {
   constructor(props){
@@ -59,6 +58,7 @@ class MemoryMap extends React.Component {
           <ul class="nav nav-tabs segment-bar-classic">
             {items}
           </ul>
+          <Search />
           <div class="tab-content">
           </div>
         </div>
@@ -71,9 +71,9 @@ class MemoryMap extends React.Component {
           <ul class="nav nav-tabs segment-bar-classic">
             {items}
           </ul>
+          <Search />
           <div class="tab-content">
-            <Search />
-            <Segment segment={this.state.selectedSegment}/>
+            <Board segment={this.state.selectedSegment}/>
           </div>
         </div>
       );
