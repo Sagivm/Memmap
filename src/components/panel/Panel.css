@@ -1,0 +1,32 @@
+  /* The sidebar menu */
+  .sidepanel {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 100%; /* Set the width of the sidebar */
+    position: static; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background: gainsboro;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top:8%;
+  }
+  
+  /* The navigation menu links */
+  .sidepanel a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidepanel a:hover {
+    color: #f1f1f1;
+  }
+  .sidepanel-test {
+    background-color: lightpink;
+
+  }
