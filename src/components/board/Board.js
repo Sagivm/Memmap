@@ -22,7 +22,7 @@ class Board extends React.Component {
             <div className="col-sm-8">
               <Segment segment={this.props.segment}/>
             </div>
-            <div className="col-sm panel">
+            <div className="col-sm panel" >
               <Panel/>
             </div>
           </div>

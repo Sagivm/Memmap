@@ -5,13 +5,19 @@ import './MemoryMap.css';
 import Search from '../search/Search';
 import Board from '../board/Board';
 
+//context
+
+import {SelectedContext} from '../context/SelectedContext';
+
 class MemoryMap extends React.Component {
   constructor(props){
     super(props);
     this.state={
       aircraft:"Raam",
+      selectedIndex:null,
       selectedSegment: null
     }
+    this.handleSelectedContext = this.handleSelectedContext.bind(this)
   }
   handleSegmentClick(segment){
     this.setState({
@@ -22,7 +28,6 @@ class MemoryMap extends React.Component {
     const items=Array();
     var segments;
     var listItem;
-    var i;
 
     if (this.state.aircraft=="Raam"){
       segments=["A1","A2","A","B"];
@@ -50,8 +55,20 @@ class MemoryMap extends React.Component {
     return items;
 
   }
+  handleSelectedContext(selectedIndex){
+    this.setState({
+      selectedIndex:selectedIndex
+    })
+  }
+  createSelectedContext(){
+    return({
+      selectedIndex:this.state.selectedIndex,
+      handleSelectedContext: this.handleSelectedContext
+    });
+  }
   render(){
-    var items=this.preRender()
+    var items = this.preRender();
+    var context = this.createSelectedContext();
     if (this.state.selectedSegment == null){
       return(
         <div>
@@ -73,7 +90,9 @@ class MemoryMap extends React.Component {
           </ul>
           <Search />
           <div class="tab-content">
-            <Board segment={this.state.selectedSegment}/>
+            <SelectedContext.Provider value={context}>
+              <Board segment={this.state.selectedSegment}/>
+            </SelectedContext.Provider>
           </div>
         </div>
       );

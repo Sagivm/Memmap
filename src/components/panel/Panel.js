@@ -4,14 +4,17 @@ import {useImage} from 'react-image'
 import './Panel.css';
 
 import BoardDetail from '../blockDetail/BlockDetail';
+import {SelectedContext} from '../context/SelectedContext';
 
 
 class Panel extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      selectedIndex : this.props.selectedIndex
     }
   }
+
   renderMemBlockPanel(){
     //TODO - on over show percentage
     return(
@@ -66,12 +69,17 @@ class Panel extends React.Component {
   }
 
   render(){
+    if(this.context.selectedIndex == null)
+      return(null)
+    else{
       return(
         <div className="sidepanel">
           {this.renderMemBlockPanel()}
         </div>
-    );
+      );
+    }
   }
 }
 
+Panel.contextType = SelectedContext;
 export default Panel;

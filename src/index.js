@@ -11,9 +11,6 @@ import ThemeToggle from './components/toggle/Toggle';
 import MemoryMap from './components/memorymap/MemoryMap'
 import Bar from './components/bar/Bar';
 
-//context
-import {SelectedContext} from './components/context/SelectedContext';
-
 class Window extends React.Component {
 
   constructor(props){
@@ -22,7 +19,6 @@ class Window extends React.Component {
       dark_theme: false,
       selectedIndex:null
     }
-    this.handleSelectedContext = this.handleSelectedContext.bind(this)
   }
   
   handleThemeToggleClick(dark){
@@ -42,34 +38,15 @@ class Window extends React.Component {
     } 
   }
 
-  handleSelectedContext(selectedIndex){
-    this.setState({
-      selectedIndex:selectedIndex
-    })
-
-
-  }
-  createSelectedContext(){
-    return({
-      selectedIndex:this.state.selectedIndex,
-      handleSelectedContext: this.handleSelectedContext
-    });
-  }
-
   render() {
-    alert(this.state.selectedIndex)
-    var context = this.createSelectedContext()
     return (
       <div>
-        <SelectedContext.Provider value={context}>
           <div className="sidenav">
             <Bar/>
           </div>
           <div className="main h-100">
             <MemoryMap/>
           </div>
-        </SelectedContext.Provider>
-        
       </div>
     );
   }
