@@ -4,7 +4,7 @@ import './Segment.css';
 
 import Block from '../block/Block'; 
 
-const MEM_LENGTH = 20;
+const MEM_LENGTH = 32;
 const MEM_BLOCK_SIZE=512;
 
 //TODO: limit rendering not to entire page
