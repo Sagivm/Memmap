@@ -1,0 +1,31 @@
+Known issues to address:
+Server clint power
+* Server side
+    * map symbol table
+    * limited request against full
+    * query
+    * graphQL
+    * Think on basic loading type
+    *intigrate with pybuild or s3 storage
+* Client side
+    * query labeling
+    * limited request against full
+    * coloring type 
+    * remove dependency between segment and query
+    * intigrate with s3 storage?
+*Limited query
+    * SegmentLevel
+    * returns: {
+                    segment:{
+                     1:{
+                         start
+                         end
+                         size
+                         free //maybe iliminate one
+                         region
+                         as
+                     }...  
+                    }
+* Query
+    * Can search As, regions and units
+    * Maybe transform to query like language uwi in as2 or dgrp2 in as3 or uwi and pacs=> comparisn table

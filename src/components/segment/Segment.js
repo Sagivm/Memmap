@@ -67,6 +67,7 @@ class BoardColumn extends React.Component{
         <div class="segment">
           {items}
         </div>
+        
       );
       
     }

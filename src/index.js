@@ -9,7 +9,7 @@ import { Suspense } from 'react';
 // Components
 import ThemeToggle from './components/toggle/Toggle';
 import MemoryMap from './components/memorymap/MemoryMap'
-import Board from './components/board/Board';
+import Bar from './components/bar/Bar';
 
 //context
 import {SelectedContext} from './components/context/SelectedContext';
@@ -63,15 +63,13 @@ class Window extends React.Component {
       <div>
         <SelectedContext.Provider value={context}>
           <div className="sidenav">
-            <Board />
+            <Bar/>
           </div>
           <div className="main h-100">
             <MemoryMap/>
           </div>
         </SelectedContext.Provider>
-        <div>
-          <ThemeToggle dark_theme={this.state.dark_theme} onClick={() => this.handleThemeToggleClick(this.state.dark_theme)}  />
-        </div>
+        
       </div>
     );
   }
