@@ -1,7 +1,12 @@
-import React, {Suspense} from 'react';
+import React, {lazy, Suspense} from 'react';
 import ReactDOM from 'react-dom';
-import {useImage} from 'react-image'
 import './Bar.css';
+import logo from '../../img/logo-stuck.png'
+
+//import {useImage} from 'react-image'
+import {Img} from 'react-image'
+const myComponent = () => <Img src="https://www.example.com/foo.jpg" />
+
 
 class Bar extends React.Component {
   constructor(props){
@@ -9,12 +14,13 @@ class Bar extends React.Component {
     this.state = {
     }
   }
-  renderMemBlockPanel(){
+  renderBar(){
   }
 
   render(){
       return(
         <div>
+           <img class="img-fluid" src={logo}/>
         </div>
     );
   }

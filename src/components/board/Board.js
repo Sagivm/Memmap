@@ -2,6 +2,7 @@ import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import {useImage} from 'react-image'
 import './Board.css';
+import FadeIn from 'react-fade-in'
 
 import Segment from '../segment/Segment'
 import Panel from '../panel/Panel'
@@ -23,7 +24,9 @@ class Board extends React.Component {
               <Segment segment={this.props.segment}/>
             </div>
             <div className="col-sm panel" >
-              <Panel/>
+              <FadeIn>
+                <Panel/>
+              </FadeIn>
             </div>
           </div>
         </div>
