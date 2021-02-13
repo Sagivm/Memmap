@@ -1,9 +1,9 @@
 .tab-content{
     display: block;
-    background: whitesmoke;
+    background: #fafafa;
 }
 .segment-bar-classic{
-    background: #fafafa;
+    background: whitesmoke;
 }
 
 .segment-bar-dark{
