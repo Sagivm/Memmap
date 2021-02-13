@@ -22,6 +22,7 @@ class Block extends React.Component {
       //TODO Maybe change
       filling_percent: this.props.size / MEM_BLOCK_SIZE * 100
     }
+    this.handleClick = this.handleClick.bind(this)
   }
   get_filling_class(){
     //TODO: maybe make this more elegent and add more divition  
@@ -45,9 +46,10 @@ class Block extends React.Component {
     }
   }
   
-  handleClick(context)
+  handleClick(evt)
   {
-    context.handleSelectedContext(this.state.index)
+    evt.stopPropagation();
+    this.context.handleSelectedContext(this.state.index)
   }
 
 
@@ -68,7 +70,7 @@ class Block extends React.Component {
         <div>
           <button type="button"
                   className={'square ' + filling_class + ' ' + (this.props.selected ? "selected": null) }
-                  onClick={()=>this.handleClick(this.context)}
+                  onClick={this.handleClick}
                   data-tip={content}/>
           <ReactTooltip 
               place="bottom"
@@ -86,7 +88,7 @@ class Block extends React.Component {
         <div>
           <button type="button"
                   className={'square ' + filling_class + ' ' + (this.props.selected ? "selected": null) }
-                  onClick={()=>this.handleClick(this.context)}
+                  onClick={this.handleClick}
                   onMouseOver={()=>this.props.handleHover(this.state.index)}
                   />    
         </div>

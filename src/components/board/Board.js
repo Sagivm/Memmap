@@ -6,19 +6,24 @@ import FadeIn from 'react-fade-in'
 
 import Segment from '../segment/Segment'
 import Panel from '../panel/Panel'
+import { SelectedContext } from '../context/SelectedContext';
 
 class Board extends React.Component {
   constructor(props){
     super(props);
     this.state = {
     }
+    
   }
   renderMemBlockPanel(){
   }
 
+  handleblankclick(){
+    this.context.handleSelectedContext(null)
+  }
   render(){
       return(
-        <div className="container">
+        <div className="container" onClick={()=>this.handleblankclick()}>
           <div className="row">
             <div className="col-sm-8">
               <Segment segment={this.props.segment}/>
@@ -34,4 +39,5 @@ class Board extends React.Component {
   }
 }
 
+Board.contextType =SelectedContext
 export default Board;
