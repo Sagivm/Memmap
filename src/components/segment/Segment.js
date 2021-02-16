@@ -23,7 +23,7 @@ class BoardColumn extends React.Component{
     for (var i=0; i<MEM_LENGTH; i++){
       items.push(
            <Block 
-              size={500}
+              size={450}
               index={this.props.row*MEM_LENGTH + i}
               start={(this.props.row*MEM_LENGTH + i)*MEM_BLOCK_SIZE} 
               end={(this.props.row*MEM_LENGTH + i + 1)*MEM_BLOCK_SIZE - 1}

@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import {useImage} from 'react-image'
 import './Board.css';
 import FadeIn from 'react-fade-in'
+import {ProgressBar} from 'react-bootstrap'
 
 import Segment from '../segment/Segment'
 import Panel from '../panel/Panel'
 import { SelectedContext } from '../context/SelectedContext';
+
 
 class Board extends React.Component {
   constructor(props){
@@ -37,6 +39,15 @@ class Board extends React.Component {
         </div>
     );
   }
+  /*render(){
+    return(
+      <div class="d-flex justify-content-center w-100">
+        <div className="w-75 align center">
+            <ProgressBar animated label='80%' now={80}/>
+        </div>
+      </div>
+    );
+  }*/
 }
 
 Board.contextType =SelectedContext
