@@ -89,7 +89,7 @@ class MemoryMap extends React.Component {
             {items}
           </ul>
           <Search />
-          <div class="tab-content d-flex flex-grow min-vh-100">
+          <div class="tab-content d-flex flex-grow">
             <SelectedContext.Provider value={context}>
               <Board segment={this.state.selectedSegment}/>
             </SelectedContext.Provider>

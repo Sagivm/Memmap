@@ -6,8 +6,7 @@ import {Img} from 'react-image'
 
 //
 import Branch from '../branch/Branch';
-const myComponent = () => <Img src="https://www.example.com/foo.jpg" />
-
+import Quick from '../quick/Quick';
 
 
 class Bar extends React.Component {

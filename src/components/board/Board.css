@@ -4,4 +4,13 @@
 .progress{
     width: 100%;
     vertical-align: middle;
+    color:white
+}
+
+.progress-bar{
+    color: white !important;
+}
+
+.center{
+    margin:auto
 }

@@ -1,6 +1,7 @@
 .tab-content{
     display: block;
     background: #fafafa;
+    min-height: 87.5vh ! important;
 }
 .segment-bar-classic{
     background: whitesmoke;

@@ -26,23 +26,26 @@ class Board extends React.Component {
   render(){
       return(
         <div className="container" onClick={()=>this.handleblankclick()}>
+          <FadeIn>
           <div className="row">
-            <div className="col-sm-8">
-              <Segment segment={this.props.segment}/>
-            </div>
+            
+              <div className="col-sm-8">
+                <Segment segment={this.props.segment}/>
+              </div>
             <div className="col-sm panel" >
               <FadeIn>
                 <Panel/>
               </FadeIn>
             </div>
           </div>
+          </FadeIn>
         </div>
     );
   }
   /*render(){
     return(
       <div class="d-flex justify-content-center w-100">
-        <div className="w-75 align center">
+        <div className="w-75 align-center center">
             <ProgressBar animated label='80%' now={80}/>
         </div>
       </div>
