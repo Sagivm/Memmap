@@ -61,17 +61,25 @@ class Block extends React.Component {
       this.state.start.toString(16),
       this.state.end.toString(16),
       (MEM_BLOCK_SIZE - this.props.size).toString(16));
-    //let context = this.context;
-    //console.log(context)
     //This if is just because ReactTooltip is slow
     if (this.props.hovered)
     {
       return(
         <div>
-          <button type="button"
-                  className={'square ' + filling_class + ' ' + (this.props.selected ? "selected": null) }
-                  onClick={this.handleClick}
-                  data-tip={content}/>
+          <div
+            className="square"
+            data-tip={content}>
+            <div class="container">
+              <div className="row box">
+                <div class="col red"></div>
+                <div class="col blue"></div>
+                <div class="w-100"></div>
+                <div class="col green"></div>
+                <div class="col black"></div>
+              </div>
+            </div>
+          </div>
+          
           <ReactTooltip 
               place="bottom"
               type="light" 
@@ -86,11 +94,20 @@ class Block extends React.Component {
     else{
       return(
         <div>
-          <button type="button"
-                  className={'square ' + filling_class + ' ' + (this.props.selected ? "selected": null) }
-                  onClick={this.handleClick}
-                  onMouseOver={()=>this.props.handleHover(this.state.index)}
-                  />    
+          <div
+            className="square"
+            data-tip={content}>
+            <div class="container">
+              <div class="row">
+                <div class="col quet red"></div>
+                <div class="col quet red"></div>
+                <div class="w-100"></div>
+                <div class="col quet red"></div>
+                <div class="col quet"></div>
+              </div>
+            </div>
+
+          </div>
         </div>
       );
     }
