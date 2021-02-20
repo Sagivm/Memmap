@@ -66,19 +66,12 @@ class Block extends React.Component {
     {
       return(
         <div>
-          <div
-            className="square"
-            data-tip={content}>
-            <div class="container">
-              <div className="row box">
-                <div class="col red"></div>
-                <div class="col blue"></div>
-                <div class="w-100"></div>
-                <div class="col green"></div>
-                <div class="col black"></div>
-              </div>
-            </div>
-          </div>
+          <button
+            className="square red"
+            data-tip={content}
+            onMouseOver={()=>this.props.handleHover(this.state.index)}
+            onClick={this.handleClick}>
+          </button>
           
           <ReactTooltip 
               place="bottom"
@@ -94,20 +87,12 @@ class Block extends React.Component {
     else{
       return(
         <div>
-          <div
-            className="square"
-            data-tip={content}>
-            <div class="container">
-              <div class="row">
-                <div class="col quet red"></div>
-                <div class="col quet red"></div>
-                <div class="w-100"></div>
-                <div class="col quet red"></div>
-                <div class="col quet"></div>
-              </div>
-            </div>
-
-          </div>
+          <button
+            className="square red"
+            data-tip={content}
+            onMouseOver={()=>this.props.handleHover(this.state.index)}
+            onClick={this.handleClick}>
+          </button>
         </div>
       );
     }
