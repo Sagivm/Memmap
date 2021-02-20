@@ -14,8 +14,8 @@ class MemoryMap extends React.Component {
     super(props);
     this.state={
       aircraft:"Raam",
-      selectedIndex:null,
-      selectedSegment: null
+      selectedUnit:null,
+      selectedSegment: null,
     }
     this.handleSelectedContext = this.handleSelectedContext.bind(this)
   }
@@ -55,15 +55,16 @@ class MemoryMap extends React.Component {
     return items;
 
   }
-  handleSelectedContext(selectedIndex){
+  handleSelectedContext(selected){
     this.setState({
-      selectedIndex:selectedIndex
+      selectedUnit:selected
     })
   }
   createSelectedContext(){
     return({
-      selectedIndex:this.state.selectedIndex,
-      handleSelectedContext: this.handleSelectedContext
+      selectedUnit:this.state.selectedUnit,
+      handleSelectedContext: this.handleSelectedContext,
+
     });
   }
   render(){

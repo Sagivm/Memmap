@@ -17,7 +17,6 @@ class Window extends React.Component {
     super(props);
     this.state = {
       dark_theme: false,
-      selectedIndex:null
     }
   }
   
