@@ -22,35 +22,23 @@
   
   .mem-block-0 
   {
-    background: -webkit-linear-gradient(left, #e04a4a, white 0%);
-    background: -moz-linear-gradient(left center, #e04a4a, white 0%);
-    background: -o-linear-gradient(left,#e04a4a, white 0%);
-    background: linear-gradient(to right,#e04a4a, white 0%);
+    background:white
   }
   .mem-block-25 
   {
-    background: -webkit-linear-gradient(left, #e04a4a, white 25%);
-    background: -moz-linear-gradient(left center, #e04a4a, white 25%);
-    background: -o-linear-gradient(left,#e04a4a, white 25%);
-    background: linear-gradient(to right, #e04a4a, white 25%);
+    background: #efa1a1
   }
   .mem-block-50 
   {
-    background: -webkit-linear-gradient(left, #e04a4a, white 50%);
-    background: -moz-linear-gradient(left center, #e04a4a, white 50%);
-    background: -o-linear-gradient(left, #e04a4a, white 50%);
-    background: linear-gradient(to right, #e04a4a, white 50%);
+    background: #e77676
   }
   .mem-block-75
   {
-    background: -webkit-linear-gradient(left, #e04a4a, white 75%);
-    background: -moz-linear-gradient(left center, #e04a4a, white 75%);
-    background: -o-linear-gradient(left,#e04a4a, white 75%);
-    background: linear-gradient(to right, #e04a4a, white 75%);
+    background:#e04a4a
   }
   .mem-block-100 
   {
-    background: #e04a4a;
+    background: #D32424;
   }
   
   #theme-toggle {
@@ -65,31 +53,6 @@
     border-width: 2px;
   }
 
-.red{
-  background: #e04a4a
-}
-.green{
-  background: green
-}
-.blue{
-  background: aqua
-}
-.black{
-  background: black
-}
-.quet{
-  height: 8.5px;
-  width: 8px;
-  padding-right: 0;
-  padding-left: 0;
-  flex-basis:auto;
-  flex-grow:0;
-}
-.box{
-  margin-top: -1px;
-  margin-bottom: -1px;
-
-}
-.fill{
-  width: 100%;
+.hoverd{
+  border: 2px solid black;
 }

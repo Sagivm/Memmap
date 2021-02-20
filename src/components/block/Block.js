@@ -67,7 +67,7 @@ class Block extends React.Component {
       return(
         <div>
           <button
-            className="square red"
+            className={"square hoverd "+ this.get_filling_class()}
             data-tip={content}
             onMouseOver={()=>this.props.handleHover(this.state.index)}
             onClick={this.handleClick}>
@@ -88,7 +88,7 @@ class Block extends React.Component {
       return(
         <div>
           <button
-            className="square red"
+            className= {"square "+ this.get_filling_class()}
             data-tip={content}
             onMouseOver={()=>this.props.handleHover(this.state.index)}
             onClick={this.handleClick}>
